@@ -16,7 +16,7 @@ class BaseContact:
         return f"{self._class_._name_}"
 
 
-class Businesscontact(BaseContact):
+class BusinessContact(BaseContact):
     def __init__(self, first_name, last_name,phone, email, position, company, company_number):
         super()._init_(first_name=first_name,
                        last_name=last_name,
@@ -51,7 +51,8 @@ def create_contacts(card, quantity):
         item.contact()
         print(item.label_lenght, item._str_())
 
-if_name_=="_main_":
+
+if name =="_main_":
         create_contacts(BusinessContact, 10)
         create_contacts(BaseContact, 10)
 
