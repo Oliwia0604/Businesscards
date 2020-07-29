@@ -13,17 +13,20 @@ class BaseContact:
 
     @property
     def label_length(self):
+        return len(self.first_name) + len(self.last_name)
+    
+    def _str_(self):
         return f"{self._class_._name_}"
 
 
 class BusinessContact(BaseContact):
-    def __init__(self, first_name, last_name,phone, email, position, company, company_number):
+    def __init__(self, first_name, last_name, phone, email=None, position=None, company_name=None, company_number=None):
         super()._init_(first_name=first_name,
                        last_name=last_name,
                        phone=phone,
                        email=email)
         self.position = position
-        self.company = company
+        self.company_name = company_name
         self.company_number = company_number
 
     def contact(self):
@@ -36,14 +39,14 @@ def create_contacts(card, quantity):
 
     for _ in range(quantity):
         if card is BusinessContact:
-            item = card(first_name=faker.first_name(),
+            item = BusinessContact(first_name=faker.first_name(),
                         last_name=faker.last_name(),
                         phone=faker.phone_number(),
                         email=faker.email(),
-                        company_phone=faker.company_phone())
+                        company_number=faker.company_number())
 
         elif card is BaseContact:
-            item = card(first_name=faker.first_name(),
+            item = BaseContact(first_name=faker.first_name(),
                         last_name=faker.last_name(),
                         phone=faker.phone_number(),
                         email=faker.email())
@@ -52,7 +55,7 @@ def create_contacts(card, quantity):
         print(item.label_lenght, item._str_())
 
 
-if name =="_main_":
+if __name__=="__main__":
     create_contacts(BusinessContact, 10)
     create_contacts(BaseContact, 10)
     
