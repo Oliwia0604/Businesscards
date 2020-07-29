@@ -8,38 +8,52 @@ class BaseContact:
         self.email = email
 
     def contact(self):
-        return f"Wybieram numer {self.phone_number} i dzwonie do {self.first_name} {self.last_name}"
+        print(f"Wybieram numer {self.phone_number} i dzwonie do {self.first_name} {self.last_name}")
 
-class Businesscontact:
-    def __init__(self, position, company, phone_number2):
+
+    @property
+    def label_length(self):
+        return f"{self._class_._name_}"
+
+
+class Businesscontact(BaseContact):
+    def __init__(self, first_name, last_name,phone, email, position, company, company_number):
+        super()._init_(first_name=first_name,
+                       last_name=last_name,
+                       phone=phone,
+                       email=email)
         self.position = position
         self.company = company
-        self.phone_number2 = phone_number2
+        self.company_number = company_number
 
     def contact(self):
-        return f"Wybieram numer {self.phone_number2} i dzwonie do {self.first_name} {self.last_name}"
+        print(f"Wybieram numer {self.company_number} i dzwonie do {self.first_name} {self.last_name}")
 
-
-if __name__ == "__main__":
+def create_contacts(card, quantity):
     faker = Faker("pl_PL")
 
-def create_contacts(self, BaseContact, Businesscontact):
-    for _ in range(7):
-        create_contacts=create_contacts(
-            first_name=faker.first_name(),
-            last_name=faker.last_name(),
-            position=faker.position(),
-            company=company.faker()
-            email=faker.email(),
-        )
-create_contacts()
+    item = None
 
-    print(BaseContact)
-    or
-    print(Businesscontact)
-    pass
-    print(create_contacts.name_length)
+    for _ in range(quantity):
+        if card is BusinessContact:
+            item = card(first_name=faker.first_name(),
+                        last_name=faker.last_name(),
+                        phone=faker.phone_number(),
+                        email=faker.email(),
+                        company_phone=faker.company_phone())
 
+        elif card is BaseContact:
+            item = card(first_name=faker.first_name(),
+                        last_name=faker.last_name(),
+                        phone=faker.phone_number(),
+                        email=faker.email())
+
+        item.contact()
+        print(item.label_lenght, item._str_())
+
+    
+        create_contacts(BusinessContact, 10)
+        create_contacts(BaseContact, 10)
 
 
 
