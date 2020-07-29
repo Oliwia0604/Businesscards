@@ -55,7 +55,7 @@ def create_contacts(card, quantity):
     if name =="_main_":
         create_contacts(BusinessContact, 10)
         create_contacts(BaseContact, 10)
-
+    
     
 
 
