@@ -52,10 +52,11 @@ def create_contacts(card, quantity):
         print(item.label_lenght, item._str_())
 
 
-if _name_ == "_main_":
+    if name =="_main_":
+        create_contacts(BusinessContact, 10)
+        create_contacts(BaseContact, 10)
 
-    create_contacts(BusinessContact, 10)
-    create_contacts(BaseContact, 10)
+    
 
 
 
