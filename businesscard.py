@@ -23,7 +23,7 @@ class BusinessContact(BaseContact):
     def __init__(self, first_name, last_name, phone_number, email=None, position=None, company_name=None, company_number=None):
         super().__init__(first_name=first_name,
                         last_name=last_name,
-                        phone_number=phone)
+                        phone_number=phone_number)
                         
         self.position = position
         self.company_name = company_name
@@ -41,7 +41,7 @@ def create_contacts(card, quantity):
         if card is BusinessContact:
             item = BusinessContact(first_name=faker.first_name(),
                         last_name=faker.last_name(),
-                        phone=faker.phone_number(),
+                        phone_number=faker.phone_number(),
                         email=faker.email(),
                         company_number=faker.phone_number())
             
