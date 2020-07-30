@@ -23,8 +23,8 @@ class BusinessContact(BaseContact):
     def __init__(self, first_name, last_name, phone_number, email=None, position=None, company_name=None, company_number=None):
         super().__init__(first_name=first_name,
                         last_name=last_name,
-                        phone_number=phone_number)
-                        
+                        phone_number=phone_number,
+                        email=email)
         self.position = position
         self.company_name = company_name
         self.company_number = company_number
