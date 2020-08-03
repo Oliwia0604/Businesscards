@@ -11,7 +11,7 @@ class Movie:
         self.number_of_plays=number_of_plays
 
     def play(self):
-        self.number_of_play += 1
+        self.number_of_plays += 1
         return self.number_of_plays
 
     def __str__(self):
